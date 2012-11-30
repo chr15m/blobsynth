@@ -5,7 +5,7 @@
 }
 
 body {
-	background-image: url('img/bg.png');
+	background-image: url('../img/bg.png');
 }
 
 #title {
@@ -43,53 +43,57 @@ body {
 
 .button {
 	margin: 10px;
-}
-
-#audio-switch {
-	width: 38px;
-	height: 38px;
-	background-image: url('img/audio.png');
-	margin-left: auto;
-	margin-right: auto;
 	display: inline-block;
 }
 
-#audio-switch:hover {
-	background-image: url('img/audio-hover.png');
+.audio-switch {
+	width: 38px;
+	height: 38px;
+	background-image: url('../img/audio.png');
 }
 
-#audio-switch.mute {
-	background-image: url('img/audio-mute.png');
+.audio-switch:hover {
+	background-image: url('../img/audio-hover.png');
 }
 
-#audio-switch.mute:hover {
-	background-image: url('img/audio-mute-hover.png');
+.audio-switch.mute {
+	background-image: url('../img/audio-mute.png');
 }
 
+.audio-switch.mute:hover {
+	background-image: url('../img/audio-mute-hover.png');
+}
+
+#audio-master {
+	margin-left: auto;
+	margin-right: auto;
+}
 
 #add-blob {
 	width: 38px;
 	height: 38px;
-	background-image: url('img/add.png');
+	background-image: url('../img/add.png');
 	margin-left: auto;
 	margin-right: auto;
-	display: inline-block;
 }
 
 #add-blob:hover {
-	background-image: url('img/add-hover.png');
+	background-image: url('../img/add-hover.png');
+}
+
+.blob .audio-switch{
+	float: right;
 }
 
 .remove-blob {
 	width: 38px;
 	height: 38px;
-	background-image: url('img/remove.png');
-	display: inline-block;
+	background-image: url('../img/remove.png');
 	float: right;
 }
 
 .remove-blob:hover {
-	background-image: url('img/remove-hover.png');
+	background-image: url('../img/remove-hover.png');
 }
 
 #blobs {

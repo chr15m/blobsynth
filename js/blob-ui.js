@@ -32,25 +32,29 @@ $(function() {
 		templates["blob"] = data;
 	});
 	
-	// when they hit the audio switch turn it on and off
-	$("#audio-switch").bind(clickevent, function(ev) {
-		if ($(this).hasClass("mute")) {
-			$(this).removeClass("mute");
-		} else {
-			$(this).addClass("mute");
-		}
-		ev.preventDefault();
-	});
-	
 	// when they hit the plus button add a new blob
 	$("#add-blob").bind(clickevent, function(ev) {
 		$("#blobs").append(templates["blob"]);
 		ev.preventDefault();
 	});
 	
+	// UI for each blob
+	
 	// when they click the x it removes the blob
 	$(".remove-blob").live(clickevent, function(ev) {
-		$(this).parent().remove();
+		if (confirm("Really remove this blob?")) {
+			$(this).parent().remove();
+		}
+		ev.preventDefault();
+	});
+	
+	// when they hit the audio switch turn it on and off
+	$(".audio-switch").live(clickevent, function(ev) {
+		if ($(this).hasClass("mute")) {
+			$(this).removeClass("mute");
+		} else {
+			$(this).addClass("mute");
+		}
 		ev.preventDefault();
 	});
 });
