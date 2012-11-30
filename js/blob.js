@@ -16,31 +16,55 @@
 	}
 */
 
-var blobdata = null;
+// allow console level access to the blob data
+window.blobdata = {"blobs": []};
 
-var BlobEngine = {
-	"update": function(data) {
-	},
-	"process": function(t) {
+var BlobEngine = function(data) {
+	var accum = 0;
+	var blobs = data.blobs;
+	var blobvol = 0;
+	var on = false;
+	
+	// get the values of each blob at a particular point in time t
+	this.process = function(t) {
+		accum = 0;
+		blobvol = (1 / blobs.length);
+		for (var b=0; b<blobs.length; b++) {
+			accum += (blobs[b].wave_function.evaluate({"t": t}) * blobvol) * on;
+		}
+		return accum;
+	}
+	
+	// master audio switch
+	this.master = function(onoff) {
+		on = onoff;
 	}
 };
 
 // launch everything
 $(function() {
-	// test audio output
-	var k, v, t = 0;
-	/*
+	// create the blob playing engine
+	window.blobengine = new BlobEngine(blobdata);
+	
+	// universal sample stamp
+	var t = 0;
+	// register for the latest value
+	var reg = null;
+	// rate at which the thing moves
+	var rate = 0;
+	
+	// use sink to stream the audio to the browser
 	var sink = Sink(function(buffer, channelCount) {
 		for (var j=0; j<buffer.length; j+=2, t++) {
-			v = Math.sin(k*t);
-			buffer[j] = v;
-			buffer[j+1] = v;
+			buffer[j] = buffer[j+1] = blobengine.process(t * rate);
 		}
 	}, 2);
-	k = 2 * Math.PI * 440 / sink.sampleRate;
-	*/
+	// k = 2 * Math.PI * 440 / sink.sampleRate;
+	rate = (2 * Math.PI / sink.sampleRate)
 	
 	// test evaluating an expression
-	var expr = Parser.parse("2 * sin(t) + 1");
-	$("#show").html(expr.evaluate({"t": 2}));
+	//var expr = Parser.parse("2 * sin(t) + 1");
+	// $("#show").html(expr.evaluate({"t": 2}));
+	blobdata.blobs.push({"wave_function": Parser.parse("sin(t * 440) * sin(tan(t)*pow(sin(t),10))")});
+	// blobdata.blobs.push({"wave_function": Parser.parse("sin(t * 880)")});
 });

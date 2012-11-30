@@ -38,6 +38,15 @@ $(function() {
 		ev.preventDefault();
 	});
 	
+	// when they hit the audio switch turn it on and off
+	$("#audio-master").live(clickevent, function(ev) {
+		if ($(this).hasClass("mute")) {
+			blobengine.master(true);
+		} else {
+			blobengine.master(false);
+		}
+	});
+	
 	// UI for each blob
 	
 	// when they click the x it removes the blob
