@@ -34,8 +34,12 @@ $(function() {
 	
 	// when they hit the plus button add a new blob
 	$("#add-blob").bind(clickevent, function(ev) {
-		$("#blobs").append(templates["blob"]);
+		var new_blob = $(templates["blob"]);
+		$("#blobs").append(new_blob);
+		new_blob[0].data = blobengine.new_blob();
 		ev.preventDefault();
+		update_blob_equation(new_blob.find(".blob-equation"));
+		console.log(new_blob.find(".blob-equation"));
 	});
 	
 	// when they hit the audio switch turn it on and off
@@ -46,24 +50,45 @@ $(function() {
 			blobengine.master(false);
 		}
 	});
-	
+
 	// UI for each blob
 	
 	// when they click the x it removes the blob
 	$(".remove-blob").live(clickevent, function(ev) {
+		var boss = $(this).parent();
 		if (confirm("Really remove this blob?")) {
-			$(this).parent().remove();
+			// the blob will tell the blob engine to remove it
+			boss[0].data.remove();
+			// remove the UI element too
+			boss.remove();
 		}
 		ev.preventDefault();
 	});
 	
 	// when they hit the audio switch turn it on and off
 	$(".audio-switch").live(clickevent, function(ev) {
+		var boss = $(this).parent();
 		if ($(this).hasClass("mute")) {
 			$(this).removeClass("mute");
+			if (boss.hasClass("blob")) {
+				boss[0].data.on(true);
+			}
 		} else {
 			$(this).addClass("mute");
+			if (boss.hasClass("blob")) {
+				boss[0].data.on(false);
+			}
 		}
 		ev.preventDefault();
+	});
+	
+	// updates the equation of a blob
+	function update_blob_equation(blob_input) {
+		$(blob_input).parent()[0].data.set_equation($(blob_input).val());
+	}
+	
+	// when they enter a new equation regenerate
+	$(".blob input.blob-equation").live("change", function(ev) {
+		update_blob_equation(this);
 	});
 });
