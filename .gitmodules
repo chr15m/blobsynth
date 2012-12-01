@@ -3,4 +3,4 @@
 	url = https://github.com/jussi-kalliokoski/sink.js.git
 [submodule "js-expression-eval"]
 	path = js-expression-eval
-	url = https://github.com/silentmatt/js-expression-eval.git
+	url = https://github.com/chr15m/js-expression-eval.git
