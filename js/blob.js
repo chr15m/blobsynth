@@ -29,19 +29,42 @@ var Blob = function(owner) {
 }
 
 var BlobEngine = function(data) {
-	var accum = 0;
 	var blobs = data.blobs;
+	// volume multiplier for all blobs
 	var blobvol = 0;
+	// rate at which time moves (length in time of one sample)
+	var rate = 0;
+	// current sample
+	var current_sample = 0;
+	// whether or not the engine is currently on
 	var on = false;
+	// temporary accumulator
+	var accum = 0;
+	// reference to self
+	var engine = this;
 	
 	// get the values of each blob at a particular point in time t
-	this.process = function(t) {
+	this.process = function(buffer, channelCount) {
+		if (on) {
+			blobvol = (1 / blobs.length);
+			for (var j=0; j<buffer.length; j+=2, current_sample++) {
+				buffer[j] = buffer[j+1] = engine.process_at_time(current_sample * rate);
+			}
+		}
+	}
+	
+	// process a single sample
+	this.process_at_time = function(timestamp) {
 		accum = 0;
-		blobvol = (1 / blobs.length);
 		for (var b=0; b<blobs.length; b++) {
-			accum += (blobs[b].wave_function.evaluate({"t": t}) * blobvol) * on * blobs[b].data.on;
+			accum += (blobs[b].wave_function.evaluate({"t": timestamp}) * blobvol) * on * blobs[b].data.on;
 		}
 		return accum;
+	}
+	
+	// set the rate at which we will operate
+	this.set_rate = function(sample_rate) {
+		rate = 2 * Math.PI / sample_rate;
 	}
 	
 	// master audio switch
@@ -67,21 +90,9 @@ $(function() {
 	// create the blob playing engine
 	window.blobengine = new BlobEngine(blobdata);
 	
-	// universal sample stamp
-	var t = 0;
-	// register for the latest value
-	var reg = null;
-	// rate at which the thing moves
-	var rate = 0;
-	
 	// use sink to stream the audio to the browser
-	var sink = Sink(function(buffer, channelCount) {
-		for (var j=0; j<buffer.length; j+=2, t++) {
-			buffer[j] = buffer[j+1] = blobengine.process(t * rate);
-		}
-	}, 2);
-	// k = 2 * Math.PI * 440 / sink.sampleRate;
-	rate = (2 * Math.PI / sink.sampleRate)
+	var sink = Sink(blobengine.process, 2);
+	blobengine.set_rate(sink.sampleRate);
 	
 	// test evaluating an expression
 	//var expr = Parser.parse("2 * sin(t) + 1");
@@ -91,12 +102,14 @@ $(function() {
 });
 
 // TODO: cro-bar Miller's mtof function into the parser
-function mtof(f) {
-	if (f <= -1500) {
-		return 0;
-	} else if (f > 1499) {
-		return mtof(1499);
-	} else {
-		return (8.17579891564 * Math.exp(.0577622650 * f));
+function add_mtof(expression) {
+	function mtof(f) {
+		if (f <= -1500) {
+			return 0;
+		} else if (f > 1499) {
+			return mtof(1499);
+		} else {
+			return (8.17579891564 * Math.exp(.0577622650 * f));
+		}
 	}
 }
