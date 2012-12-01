@@ -114,7 +114,10 @@ input {
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	background-color: white;	
-	margin: 10px;
+	margin: 6px;
+	font-family: "ProggyCleanSZBP";
+	font-size: 16px;
+	padding: 2px;
 }
 
 .blob-equation {
