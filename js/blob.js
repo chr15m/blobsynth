@@ -100,16 +100,3 @@ $(function() {
 	// blobdata.blobs.push({"wave_function": Parser.parse("sin(t * 440) * sin(tan(t)*pow(sin(t),10))")});
 	// blobdata.blobs.push({"wave_function": Parser.parse("sin(t * 880)")});
 });
-
-// TODO: cro-bar Miller's mtof function into the parser
-function add_mtof(expression) {
-	function mtof(f) {
-		if (f <= -1500) {
-			return 0;
-		} else if (f > 1499) {
-			return mtof(1499);
-		} else {
-			return (8.17579891564 * Math.exp(.0577622650 * f));
-		}
-	}
-}
