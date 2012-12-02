@@ -42,6 +42,8 @@ var BlobEngine = function(data) {
 	var accum = 0;
 	// reference to self
 	var engine = this;
+	// how fast k moves (bpm)
+	var krate = 1;
 	
 	// get the values of each blob at a particular point in time t
 	this.process = function(buffer, channelCount) {
@@ -57,7 +59,7 @@ var BlobEngine = function(data) {
 	this.process_at_time = function(timestamp) {
 		accum = 0;
 		for (var b=0; b<blobs.length; b++) {
-			accum += (blobs[b].wave_function.evaluate({"t": timestamp}) * blobvol) * on * blobs[b].data.on;
+			accum += (blobs[b].wave_function.evaluate({"t": timestamp, "k": timestamp * krate}) * blobvol) * on * blobs[b].data.on;
 		}
 		return accum;
 	}
@@ -82,6 +84,11 @@ var BlobEngine = function(data) {
 	// remove a blob from our list of blobs
 	this.remove_blob = function(blob) {
 		blobs.splice(blobs.indexOf(blob), 1);
+	}
+	
+	// set the bpm of the k rate
+	this.set_bpm = function(bpm) {
+		krate = (bpm / 60.0) / 4;
 	}
 };
 

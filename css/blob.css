@@ -123,3 +123,7 @@ input {
 .blob-equation {
 	width: 280px;
 }
+
+#bpm {
+	width: 2em;
+}

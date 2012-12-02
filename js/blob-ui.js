@@ -51,7 +51,14 @@ $(function() {
 		}
 	});
 
-	// UI for each blob
+	// when they change the BPM value - changes k rate
+	$("input#bpm").live("change", function(ev) {
+		blobengine.set_bpm(parseInt($(this).val()));
+	});
+	// set the initial value
+	blobengine.set_bpm(parseInt($("input#bpm").val()));
+	
+	/*** UI for each blob ***/
 	
 	// when they click the x it removes the blob
 	$(".remove-blob").live(clickevent, function(ev) {
