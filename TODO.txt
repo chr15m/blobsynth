@@ -1,0 +1,3 @@
+ * auto expanding text area for the equation
+ * logic operators in the parser
+ * visualisation of the sound (circles like on that one codepen.io example)
