@@ -37,6 +37,7 @@ $(function() {
 		var new_blob = $(templates["blob"]);
 		$("#blobs").append(new_blob);
 		new_blob[0].data = blobengine.new_blob();
+		new_blob.find("textarea").expander();
 		ev.preventDefault();
 		update_blob_equation(new_blob.find(".blob-equation"));
 	});
@@ -94,7 +95,7 @@ $(function() {
 	}
 	
 	// when they enter a new equation regenerate
-	$(".blob input.blob-equation").live("change", function(ev) {
+	$(".blob textarea.blob-equation").live("change", function(ev) {
 		update_blob_equation(this);
 	});
 });

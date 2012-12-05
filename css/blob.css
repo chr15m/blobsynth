@@ -108,7 +108,7 @@ body {
 	padding: 5px;
 }
 
-input {
+textarea, input {
 	border: 1px solid #ccc;
 	border-radius: 2px;
 	-moz-border-radius: 2px;
