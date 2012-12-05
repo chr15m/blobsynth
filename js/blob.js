@@ -4,13 +4,19 @@ window.blobdata = {"blobs": []};
 var Blob = function(owner) {
 	this.data = {
 		"on": false,
-		"wave": ""
+		"wave": "",
+		"volume": 1,
+		"pan": 0.5
 	};
 	
 	this.wave_function = {
 		"evaluate": function() {
 			return 0;
 		}
+	}
+	
+	this.compute = function(parameters) {
+		return this.data.on ? this.wave_function.evaluate(parameters) * this.data.volume * (parameters.c ? this.data.pan : 1 - this.data.pan) : 0;
 	}
 	
 	this.remove = function() {
@@ -31,7 +37,7 @@ var Blob = function(owner) {
 var BlobEngine = function(data) {
 	var blobs = data.blobs;
 	// volume multiplier for all blobs
-	var blobvol = 0;
+	var blobvol = 1;
 	// rate at which time moves (length in time of one sample)
 	var rate = 0;
 	// current sample
@@ -50,16 +56,20 @@ var BlobEngine = function(data) {
 		if (on) {
 			blobvol = (1 / blobs.length);
 			for (var j=0; j<buffer.length; j+=2, current_sample++) {
-				buffer[j] = buffer[j+1] = engine.process_at_time(current_sample * rate);
+				buffer[j] = engine.process_at_time(current_sample * rate, 0);
+				buffer[j+1] = engine.process_at_time(current_sample * rate, 1);
 			}
 		}
 	}
 	
 	// process a single sample
-	this.process_at_time = function(timestamp) {
+	this.process_at_time = function(timestamp, channel) {
 		accum = 0;
-		for (var b=0; b<blobs.length; b++) {
-			accum += (blobs[b].wave_function.evaluate({"t": timestamp, "k": timestamp * krate}) * blobvol) * on * blobs[b].data.on;
+		if (on) {
+			var blob_params = {"t": timestamp, "k": timestamp * krate, "c": channel};
+			for (var b=0; b<blobs.length; b++) {
+				accum += blobs[b].compute(blob_params) * blobvol;
+			}
 		}
 		return accum;
 	}
