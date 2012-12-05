@@ -24,9 +24,15 @@ var Blob = function(owner) {
 	}
 	
 	this.set_equation = function (eq) {
-		var fn = Parser.parse(eq);
+		try {
+			var fn = Parser.parse(eq);
+		} catch (e) {
+			console.log(e);
+			return false;
+		}
 		this.wave_function = fn;
 		this.data.wave = eq;
+		return true;
 	}
 	
 	this.on = function(x) {

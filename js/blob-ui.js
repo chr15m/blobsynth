@@ -91,7 +91,11 @@ $(function() {
 	
 	// updates the equation of a blob
 	function update_blob_equation(blob_input) {
-		$(blob_input).parent()[0].data.set_equation($(blob_input).val());
+		if ($(blob_input).parent()[0].data.set_equation($(blob_input).val())) {
+			$(blob_input).css("border-color", "");
+		} else {
+			$(blob_input).css("border-color", "red");
+		};
 	}
 	
 	// when they enter a new equation regenerate
