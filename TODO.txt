@@ -1,8 +1,14 @@
  * panning and volume controls on blobs
- * auto expanding text area for the equation
- * logic operators in the parser
  * visualisation of the sound (circles like on that one codepen.io example)
+
  * json URL generator / save script
  * master output algorithm
  * documentation - instructions (?) link to popup list of fns etc.
- * export to C code?
+
+ * logic operators in the parser
+
+ * instrument name box
+ * ability to tweet an instrument
+ * show list of instrument tweets on a slide-out
+
+ * export to C code? C lib?
