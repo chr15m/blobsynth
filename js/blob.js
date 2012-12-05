@@ -42,8 +42,6 @@ var Blob = function(owner) {
 
 var BlobEngine = function(data) {
 	var blobs = data.blobs;
-	// volume multiplier for all blobs
-	var blobvol = 1;
 	// rate at which time moves (length in time of one sample)
 	var rate = 0;
 	// current sample
@@ -60,7 +58,7 @@ var BlobEngine = function(data) {
 	// get the values of each blob at a particular point in time t
 	this.process = function(buffer, channelCount) {
 		if (on) {
-			blobvol = (1 / blobs.length);
+			// blobvol = (1 / blobs.length);
 			for (var j=0; j<buffer.length; j+=2, current_sample++) {
 				buffer[j] = engine.process_at_time(current_sample * rate, 0);
 				buffer[j+1] = engine.process_at_time(current_sample * rate, 1);
@@ -74,7 +72,7 @@ var BlobEngine = function(data) {
 		if (on) {
 			var blob_params = {"t": timestamp, "k": timestamp * krate, "c": channel};
 			for (var b=0; b<blobs.length; b++) {
-				accum += blobs[b].compute(blob_params) * blobvol;
+				accum += blobs[b].compute(blob_params);
 			}
 		}
 		return accum;
