@@ -39,7 +39,6 @@ $(function() {
 		new_blob[0].data = blobengine.new_blob();
 		ev.preventDefault();
 		update_blob_equation(new_blob.find(".blob-equation"));
-		console.log(new_blob.find(".blob-equation"));
 	});
 	
 	// when they hit the audio switch turn it on and off
