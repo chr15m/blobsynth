@@ -1,3 +1,8 @@
+ * panning and volume controls on blobs
  * auto expanding text area for the equation
  * logic operators in the parser
  * visualisation of the sound (circles like on that one codepen.io example)
+ * json URL generator / save script
+ * master output algorithm
+ * documentation - instructions (?) link to popup list of fns etc.
+ * export to C code?
