@@ -37,7 +37,7 @@ $(function() {
 		var new_blob = $(templates["blob"]);
 		$("#blobs").append(new_blob);
 		new_blob[0].blob = blobengine.new_blob();
-		new_blob.find("textarea").expander();
+		new_blob.find("textarea").expander().tabbable();
 		new_blob.find(".slider").slider(function(name, value){
 			new_blob[0].blob.data[name] = value;
 		});

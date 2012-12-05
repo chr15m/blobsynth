@@ -1,7 +1,7 @@
 // turns an input element into a slider graphic
 $(function() {
 	$.fn.slider = function(callback) {
-		this.each(function() {
+		return this.each(function() {
 			var val = parseFloat($(this).val());
 			var got = null;
 			var me = $(this);
