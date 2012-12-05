@@ -3,10 +3,8 @@
 $(function() {
 	$.fn.tabbable = function() {
 		return this.each(function() {
-			console.log($(this));
 			$(this).bind('keydown', function(e) {
 				var keyCode = e.keyCode || e.which;
-				console.log(keyCode);
 				
 				if (keyCode == 9) {
 					e.preventDefault();
