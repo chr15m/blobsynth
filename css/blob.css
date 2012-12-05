@@ -127,3 +127,26 @@ textarea, input {
 #bpm {
 	width: 2em;
 }
+
+.slider {
+	width: 72px;
+	height: 16px;
+	background-color: white;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	border: 1px solid #ccc;
+	display: inline-block;
+	margin: 10px;
+	float: left;
+}
+
+.slider-handle {
+	height: 100%;
+	width: 10px;
+	background-color: #1a1a1a;
+	position: relative;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}

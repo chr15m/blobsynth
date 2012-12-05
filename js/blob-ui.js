@@ -36,8 +36,11 @@ $(function() {
 	$("#add-blob").bind(clickevent, function(ev) {
 		var new_blob = $(templates["blob"]);
 		$("#blobs").append(new_blob);
-		new_blob[0].data = blobengine.new_blob();
+		new_blob[0].blob = blobengine.new_blob();
 		new_blob.find("textarea").expander();
+		new_blob.find(".slider").slider(function(name, value){
+			new_blob[0].blob.data[name] = value;
+		});
 		ev.preventDefault();
 		update_blob_equation(new_blob.find(".blob-equation"));
 	});
@@ -65,7 +68,7 @@ $(function() {
 		var boss = $(this).parent();
 		if (confirm("Really remove this blob?")) {
 			// the blob will tell the blob engine to remove it
-			boss[0].data.remove();
+			boss[0].blob.remove();
 			// remove the UI element too
 			boss.remove();
 		}
@@ -78,12 +81,12 @@ $(function() {
 		if ($(this).hasClass("mute")) {
 			$(this).removeClass("mute");
 			if (boss.hasClass("blob")) {
-				boss[0].data.on(true);
+				boss[0].blob.on(true);
 			}
 		} else {
 			$(this).addClass("mute");
 			if (boss.hasClass("blob")) {
-				boss[0].data.on(false);
+				boss[0].blob.on(false);
 			}
 		}
 		ev.preventDefault();
@@ -91,7 +94,7 @@ $(function() {
 	
 	// updates the equation of a blob
 	function update_blob_equation(blob_input) {
-		if ($(blob_input).parent()[0].data.set_equation($(blob_input).val())) {
+		if ($(blob_input).parent()[0].blob.set_equation($(blob_input).val())) {
 			$(blob_input).css("border-color", "");
 		} else {
 			$(blob_input).css("border-color", "red");
