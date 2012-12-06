@@ -25,7 +25,7 @@ var Blob = function(owner) {
 	
 	this.set_equation = function (eq) {
 		try {
-			var fn = Parser.parse(eq);
+			var fn = Parser.parse(eq).simplify();
 		} catch (e) {
 			console.log(e);
 			return false;
