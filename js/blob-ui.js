@@ -58,6 +58,21 @@ $(function() {
 		}
 	});
 	
+	// what happens when the help button is clicked
+	$("#rtfm-popup").live(clickevent, function(ev) {
+		var rtfm = $("#rtfm");
+		if (rtfm.length) {
+			rtfm.show();
+		} else {
+			var rtfm = $("<div id='rtfm' class='box shadow'></div>").append(templates['rtfm']);
+			$("#blobs").before(rtfm);
+			var cb = $("<div id='rtfm-close'></div>").bind(clickevent, function(ev) {
+				rtfm.hide();
+			});
+			rtfm.prepend(cb);
+		}
+	});
+	
 	// when they change the BPM value - changes k rate
 	$("input#bpm").live("change", function(ev) {
 		blobengine.set_bpm(parseInt($(this).val()));
@@ -106,21 +121,6 @@ $(function() {
 			}
 		}
 		ev.preventDefault();
-	});
-	
-	// what happens when the help button is clicked
-	$(".rtfm").live(clickevent, function(ev) {
-		var rtfm = $("#rtfm");
-		if (rtfm.length) {
-			rtfm.show();
-		} else {
-			var rtfm = $("<div id='rtfm' class='box shadow'></div>").append(templates['rtfm']);
-			$("#blobs").before(rtfm);
-			var cb = $("<div id='rtfm-close'></div>").bind(clickevent, function(ev) {
-				rtfm.hide();
-			});
-			rtfm.prepend(cb);
-		}
 	});
 	
 	// what happens when the tweet button is clicked
