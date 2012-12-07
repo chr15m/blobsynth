@@ -120,6 +120,10 @@ textarea, input {
 	padding: 2px;
 }
 
+ul {
+	margin-left: 2em;
+}
+
 .blob-equation {
 	width: 280px;
 }
@@ -221,7 +225,8 @@ textarea, input {
 	background-image: url('../img/remove-hover.png');
 }
 
-
-ul {
-	margin-left: 2em;
+iframe.twitter-timeline {
+	position: fixed;
+	bottom: -556px;
+	right: 200px;
 }

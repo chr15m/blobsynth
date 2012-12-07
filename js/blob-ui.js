@@ -31,7 +31,6 @@ $(function() {
 		var fetcher = function (name) {
 			// fetch the 'blob' and 'help' UI templates
 			$.get("templates/" + name + ".html", function(data) {
-				console.log(name);
 				templates[name] = data;
 			});
 		}(t);
@@ -106,6 +105,7 @@ $(function() {
 		ev.preventDefault();
 	});
 	
+	// what happens when the help button is clicked
 	$(".rtfm").live(clickevent, function(ev) {
 		var rtfm = $("#rtfm");
 		if (rtfm.length) {
@@ -118,6 +118,13 @@ $(function() {
 			});
 			rtfm.prepend(cb);
 		}
+	});
+	
+	// what happens when the tweet button is clicked
+	$(".tweet.button").live(clickevent, function(ev) {
+		// https://twitter.com/intent/tweet?button_hashtag=blobsynth&related=blobsynth&text=%e1%b8%82%5bexpression%5d
+		var url = "https://twitter.com/intent/tweet?button_hashtag=blobsynth&related=blobsynth&text=%e1%b8%82%5b" + encodeURI($(this).parent()[0].blob.data.wave) + "%5d";
+		var tw = window.open(url,"Blobsynth Tweet", "width=550,height=420,toolbar=no,titlebar=no,status=no,scrollbars=no,menubar=no,location=no");
 	});
 	
 	// updates the equation of a blob
