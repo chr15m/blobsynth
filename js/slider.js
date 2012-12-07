@@ -6,7 +6,7 @@ $(function() {
 			var got = null;
 			var me = $(this);
 			var handle = $("<div class='slider-handle'></div>");
-			me.after($("<div class='slider'></div>").append(handle));
+			me.after($("<div class='slider'><span class='slider-name'>" + me.attr("name") + "</span></div>").append(handle));
 			var w = me.offset().width - handle.offset().width;
 			me.hide();
 			

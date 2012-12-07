@@ -161,6 +161,15 @@ textarea, input {
 	border-radius: 2px;
 }
 
+.slider-name {
+	position: relative;
+	float: left;
+	display: inline-block;
+	width: 100%;
+	color: #aaa;
+	font-size: 0.75em;
+}
+
 #sourcelink {
 	position: absolute;
 	bottom: 0.5em;
