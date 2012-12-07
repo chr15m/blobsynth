@@ -128,6 +128,18 @@ textarea, input {
 	width: 2em;
 }
 
+.widget-container {
+	float: left;
+}
+
+.volume.widget-container {
+}
+
+.pan.widget-container {
+	margin-left: -74px;
+	margin-top: 20px;
+}
+
 .slider {
 	width: 72px;
 	height: 16px;
@@ -137,8 +149,6 @@ textarea, input {
 	border-radius: 2px;
 	border: 1px solid #ccc;
 	display: inline-block;
-	margin: 10px;
-	float: left;
 }
 
 .slider-handle {
@@ -155,4 +165,54 @@ textarea, input {
 	position: absolute;
 	bottom: 0.5em;
 	right: 0.5em;
+}
+
+.tweet {
+	width: 38px;
+	height: 38px;
+	background-image: url('../img/tweet.png');
+	float: right;
+}
+
+.tweet:hover {
+	background-image: url('../img/tweet-hover.png');
+}
+
+.rtfm {
+	width: 38px;
+	height: 38px;
+	background-image: url('../img/rtfm.png');
+	float: right;
+}
+
+.rtfm:hover {
+	background-image: url('../img/rtfm-hover.png');
+}
+
+#rtfm {
+	width: 800px;
+	padding: 1em;
+	max-height: 400px;
+	overflow-y: scroll;
+	position: absolute;
+	left: 50%;
+	margin-left: -400px;
+	z-index: 1;
+	top: 64px;
+}
+
+#rtfm-close {
+	width: 38px;
+	height: 38px;
+	background-image: url('../img/remove.png');
+	float: right;
+}
+
+#rtfm-close:hover {
+	background-image: url('../img/remove-hover.png');
+}
+
+
+ul {
+	margin-left: 2em;
 }

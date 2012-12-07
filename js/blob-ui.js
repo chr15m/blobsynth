@@ -26,11 +26,16 @@ try {
 
 // attach fun times to buttons etc.
 $(function() {
-	var templates = {};
-	// fetch the 'blob' UI template
-	$.get("templates/blob.html", function(data) {
-		templates["blob"] = data;
-	});
+	var templates = {"blob": null, "rtfm": null};
+	for (var t in templates) {
+		var fetcher = function (name) {
+			// fetch the 'blob' and 'help' UI templates
+			$.get("templates/" + name + ".html", function(data) {
+				console.log(name);
+				templates[name] = data;
+			});
+		}(t);
+	}
 	
 	// when they hit the plus button add a new blob
 	$("#add-blob").bind(clickevent, function(ev) {
@@ -40,7 +45,7 @@ $(function() {
 		new_blob.find("textarea").expander().tabbable();
 		new_blob.find(".slider").slider(function(name, value){
 			new_blob[0].blob.data[name] = value;
-		});
+		}).next();
 		ev.preventDefault();
 		update_blob_equation(new_blob.find(".blob-equation"));
 	});
@@ -90,6 +95,20 @@ $(function() {
 			}
 		}
 		ev.preventDefault();
+	});
+	
+	$(".rtfm").live(clickevent, function(ev) {
+		var rtfm = $("#rtfm");
+		if (rtfm.length) {
+			rtfm.show();
+		} else {
+			var rtfm = $("<div id='rtfm' class='box shadow'></div>").append(templates['rtfm']);
+			$("#blobs").before(rtfm);
+			var cb = $("<div id='rtfm-close'></div>").bind(clickevent, function(ev) {
+				rtfm.hide();
+			});
+			rtfm.prepend(cb);
+		}
 	});
 	
 	// updates the equation of a blob
