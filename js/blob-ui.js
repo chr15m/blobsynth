@@ -57,23 +57,26 @@ $(function() {
 			blobengine.master(false);
 		}
 	});
-
+	
 	// when they change the BPM value - changes k rate
 	$("input#bpm").live("change", function(ev) {
 		blobengine.set_bpm(parseInt($(this).val()));
 	});
+	
 	// set the initial value
 	blobengine.set_bpm(parseInt($("input#bpm").val()));
 	
+	// mousing over the twitter stream will cause it to appear
 	$("iframe.twitter-timeline").live("mouseover", function(ev) {
 		this.original_bottom = $(this).css("bottom");
 		$(this).animate({"bottom": "0px"});
 	});
-
+	
+	// mousing out from the twitter stream will cause it to disappear
 	$("iframe.twitter-timeline").live("mouseout", function(ev) {
 		$(this).animate({"bottom": this.original_bottom});
 	});
-
+	
 	/*** UI for each blob ***/
 	
 	// when they click the x it removes the blob
@@ -123,7 +126,7 @@ $(function() {
 	// what happens when the tweet button is clicked
 	$(".tweet.button").live(clickevent, function(ev) {
 		// https://twitter.com/intent/tweet?button_hashtag=blobsynth&related=blobsynth&text=%e1%b8%82%5bexpression%5d
-		var url = "https://twitter.com/intent/tweet?button_hashtag=blobsynth&related=blobsynth&text=%e1%b8%82%5b" + encodeURI($(this).parent()[0].blob.data.wave) + "%5d";
+		var url = "https://twitter.com/intent/tweet?button_hashtag=blobsynth&related=blobsynth&text=" + encodeURI($(this).parent()[0].blob.data.wave) + "";
 		var tw = window.open(url,"Blobsynth Tweet", "width=550,height=420,toolbar=no,titlebar=no,status=no,scrollbars=no,menubar=no,location=no");
 	});
 	
