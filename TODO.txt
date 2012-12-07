@@ -1,14 +1,6 @@
- * ability to tweet an instrument
- * show list of instrument tweets on a slide-out
-
-
  * visualisation of the sound (circles like on that one codepen.io example)
  * json URL generator / save script
-
  * master output algorithm
-
  * logic operators in the parser
-
  * instrument name box
-
  * export to C code? C lib?
