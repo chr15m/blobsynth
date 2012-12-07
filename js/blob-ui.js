@@ -24,6 +24,12 @@ try {
         }
 }
 
+// preload hover images
+var hovers = ["add", "audio", "audio-mute", "remove", "rtfm", "tweet"];
+for (var h=0; h<hovers.length; h++) {
+	(new Image()).src = "img/" + hovers[h] + "-hover.png";
+}
+
 // attach fun times to buttons etc.
 $(function() {
 	var templates = {"blob": null, "rtfm": null};
