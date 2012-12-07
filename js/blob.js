@@ -80,7 +80,7 @@ var BlobEngine = function(data) {
 	
 	// set the rate at which we will operate
 	this.set_rate = function(sample_rate) {
-		rate = 2 * Math.PI / sample_rate;
+		rate = 1 / sample_rate;
 	}
 	
 	// master audio switch
@@ -102,7 +102,7 @@ var BlobEngine = function(data) {
 	
 	// set the bpm of the k rate
 	this.set_bpm = function(bpm) {
-		krate = (bpm / 60.0) / 4;
+		krate = (bpm / 60.0);
 	}
 };
 
