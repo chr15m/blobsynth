@@ -66,6 +66,15 @@ $(function() {
 	// set the initial value
 	blobengine.set_bpm(parseInt($("input#bpm").val()));
 	
+	$("iframe.twitter-timeline").live("mouseover", function(ev) {
+		this.original_bottom = $(this).css("bottom");
+		$(this).animate({"bottom": "0px"});
+	});
+
+	$("iframe.twitter-timeline").live("mouseout", function(ev) {
+		$(this).animate({"bottom": this.original_bottom});
+	});
+
 	/*** UI for each blob ***/
 	
 	// when they click the x it removes the blob
