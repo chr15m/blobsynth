@@ -1,4 +1,3 @@
- * documentation - instructions (?) link to popup list of fns etc.
  * ability to tweet an instrument
  * show list of instrument tweets on a slide-out
 
