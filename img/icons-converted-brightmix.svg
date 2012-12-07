@@ -36,13 +36,13 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1366"
-     inkscape:window-height="706"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
      id="namedview3414"
      showgrid="false"
      inkscape:zoom="2"
-     inkscape:cx="-187.03272"
-     inkscape:cy="326.59405"
+     inkscape:cx="-70.13059"
+     inkscape:cy="251.09405"
      inkscape:window-x="0"
      inkscape:window-y="14"
      inkscape:window-maximized="1"
@@ -667,5 +667,105 @@
        style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="path3651"
        d="m -114.82479,85.046836 -4.20828,-4.208282 -4.96806,4.968059 -4.96692,-4.966923 -4.20716,4.207154 4.96692,4.966923 -4.96692,4.966923 4.20828,4.208284 4.96693,-4.966924 4.96693,4.966924 4.20715,-4.207149 -4.96693,-4.96693 4.96806,-4.968059" />
+  </g>
+  <g
+     id="g3483"
+     transform="translate(30.5,3.4e-6)"
+     inkscape:export-filename="/home/chrism/dev/blobsynth/img/rtfm.png"
+     inkscape:export-xdpi="91.199997"
+     inkscape:export-ydpi="91.199997">
+    <path
+       d="m -334.25,73.513764 c -10.355,0 -18.75,8.39375 -18.75,18.75 0,10.353746 8.395,18.749996 18.75,18.749996 10.35501,0 18.75,-8.39625 18.75,-18.749996 0,-10.35625 -8.39499,-18.75 -18.75,-18.75"
+       id="path3313"
+       style="fill:#1a1a1a;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csssc" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3317"
+       y="104.02851"
+       x="-343.50699"
+       style="font-size:31.70290375px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:KacstFarsi;-inkscape-font-specification:KacstFarsi Bold"
+         y="104.02851"
+         x="-343.50699"
+         id="tspan3319"
+         sodipodi:role="line">?</tspan></text>
+  </g>
+  <g
+     id="g3488"
+     transform="translate(35.5,3.4e-6)"
+     inkscape:export-filename="/home/chrism/dev/blobsynth/img/tweet.png"
+     inkscape:export-xdpi="91.199997"
+     inkscape:export-ydpi="91.199997">
+    <path
+       d="m -389.25,73.513764 c -10.355,0 -18.75,8.39375 -18.75,18.75 0,10.353746 8.395,18.749996 18.75,18.749996 10.35501,0 18.75,-8.39625 18.75,-18.749996 0,-10.35625 -8.39499,-18.75 -18.75,-18.75"
+       id="path3325"
+       style="fill:#1a1a1a;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csssc" />
+    <g
+       id="Livello_x0020_1"
+       style="fill:#ffffff;fill-rule:evenodd"
+       transform="matrix(0.00388991,0,0,0.00388991,-401.27925,82.173482)">
+      <metadata
+         id="CorelCorpID_0Corel-Layer" />
+      <path
+         style="fill:#ffffff"
+         id="path3451"
+         d="M 6701,645 C 6454,754 6189,828 5911,861 6195,691 6413,421 6515,100 6249,258 5955,372 5642,434 5391,167 5034,0 4638,0 3879,0 3263,616 3263,1375 c 0,108 12,213 36,313 C 2156,1631 1143,1083 465,251 347,454 279,690 279,942 c 0,477 243,898 612,1144 -225,-7 -437,-69 -623,-172 0,6 0,11 0,17 0,666 474,1222 1103,1348 -115,31 -237,48 -362,48 -89,0 -175,-9 -259,-25 175,546 683,944 1284,955 -471,369 -1063,589 -1708,589 -111,0 -220,-7 -328,-19 608,390 1331,618 2108,618 2529,0 3912,-2095 3912,-3912 0,-60 -1,-119 -4,-178 269,-194 502,-436 686,-712 z"
+         class="fil0"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     id="g3525"
+     inkscape:export-filename="/home/chrism/dev/blobsynth/img/rtfm-hover.png"
+     inkscape:export-xdpi="91.199997"
+     inkscape:export-ydpi="91.199997">
+    <path
+       sodipodi:nodetypes="csssc"
+       inkscape:connector-curvature="0"
+       style="fill:#782121;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="path3496"
+       d="m -303.75,173.51376 c -10.355,0 -18.75,8.39375 -18.75,18.75 0,10.35375 8.395,18.75 18.75,18.75 10.35501,0 18.75,-8.39625 18.75,-18.75 0,-10.35625 -8.39499,-18.75 -18.75,-18.75" />
+    <text
+       xml:space="preserve"
+       style="font-size:31.70290375px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+       x="-313.00699"
+       y="204.0285"
+       id="text3498"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3500"
+         x="-313.00699"
+         y="204.0285"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:KacstFarsi;-inkscape-font-specification:KacstFarsi Bold">?</tspan></text>
+  </g>
+  <g
+     id="g3519"
+     inkscape:export-filename="/home/chrism/dev/blobsynth/img/tweet-hover.png"
+     inkscape:export-xdpi="91.199997"
+     inkscape:export-ydpi="91.199997">
+    <path
+       sodipodi:nodetypes="csssc"
+       inkscape:connector-curvature="0"
+       style="fill:#782121;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="path3504"
+       d="m -353.75,173.51376 c -10.355,0 -18.75,8.39375 -18.75,18.75 0,10.35375 8.395,18.75 18.75,18.75 10.35501,0 18.75,-8.39625 18.75,-18.75 0,-10.35625 -8.39499,-18.75 -18.75,-18.75" />
+    <g
+       transform="matrix(0.00388991,0,0,0.00388991,-365.77925,182.17348)"
+       style="fill:#ffffff;fill-rule:evenodd"
+       id="g3506">
+      <metadata
+         id="metadata3508" />
+      <path
+         inkscape:connector-curvature="0"
+         class="fil0"
+         d="M 6701,645 C 6454,754 6189,828 5911,861 6195,691 6413,421 6515,100 6249,258 5955,372 5642,434 5391,167 5034,0 4638,0 3879,0 3263,616 3263,1375 c 0,108 12,213 36,313 C 2156,1631 1143,1083 465,251 347,454 279,690 279,942 c 0,477 243,898 612,1144 -225,-7 -437,-69 -623,-172 0,6 0,11 0,17 0,666 474,1222 1103,1348 -115,31 -237,48 -362,48 -89,0 -175,-9 -259,-25 175,546 683,944 1284,955 -471,369 -1063,589 -1708,589 -111,0 -220,-7 -328,-19 608,390 1331,618 2108,618 2529,0 3912,-2095 3912,-3912 0,-60 -1,-119 -4,-178 269,-194 502,-436 686,-712 z"
+         id="path3510"
+         style="fill:#ffffff" />
+    </g>
   </g>
 </svg>
